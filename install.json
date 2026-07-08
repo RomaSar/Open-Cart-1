@@ -1,0 +1,29 @@
+{
+  "name": "МойСклад Integration",
+  "version": "1.0.0",
+  "author": "РомаСар",
+  "link": "https://github.com/RomaSar/Open-Cart-1",
+  "code": "moysklad",
+  "description": "Интеграция с МойСклад: синхронизация цен, остатков, категорий, фото, заказов, атрибутов",
+  "status": true,
+  "ocmod": [],
+  "files": [
+    "admin/controller/module/moysklad.php",
+    "admin/language/en-gb/module/moysklad.php",
+    "admin/language/ru-ru/module/moysklad.php",
+    "admin/model/module/moysklad.php",
+    "admin/view/template/module/moysklad.twig",
+    "catalog/controller/cron/moysklad.php",
+    "catalog/model/module/moysklad.php",
+    "system/library/moysklad.php",
+    "system/library/moysklad/api.php",
+    "system/library/moysklad/sync.php",
+    "system/library/moysklad/price.php",
+    "system/library/moysklad/stock.php",
+    "system/library/moysklad/category.php",
+    "system/library/moysklad/product.php",
+    "system/library/moysklad/order.php",
+    "system/library/moysklad/image.php",
+    "system/library/moysklad/attribute.php"
+  ]
+}
