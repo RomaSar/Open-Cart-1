@@ -6,7 +6,7 @@ class Moysklad extends \Opencart\System\Engine\Model
 {
     public function getSettings(): array
     {
-        $this->load->model('setting/module');
-        return $this->model_setting_module->getSetting('module_moysklad');
+        $this->load->model('setting/setting');
+        return $this->model_setting_setting->getSetting('module_moysklad');
     }
 }

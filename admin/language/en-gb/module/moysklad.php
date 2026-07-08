@@ -1,15 +1,20 @@
 <?php
 
-$_['text_enabled'] = 'Enabled';
-$_['text_disabled'] = 'Disabled';
-$_['entry_api_key'] = 'API Key';
-$_['entry_sync_frequency'] = 'Sync Frequency (minutes)';
-$_['entry_price_type'] = 'Price Type';
-$_['entry_sync_images'] = 'Sync Images';
-$_['entry_sync_attributes'] = 'Sync Attributes';
-$_['button_save'] = 'Save';
-$_['button_sync_now'] = 'Sync Now';
-$_['button_test_connection'] = 'Test Connection';
-$_['text_success'] = 'Settings saved successfully';
-$_['text_home'] = 'Home';
-$_['text_extension'] = 'Extensions';
+namespace Opencart\Admin\Language\En_gb\Module;
+
+return [
+    'heading_title' => 'МойСклад Integration',
+    'text_enabled' => 'Enabled',
+    'text_disabled' => 'Disabled',
+    'entry_api_key' => 'API Key',
+    'entry_sync_frequency' => 'Sync Frequency (minutes)',
+    'entry_price_type' => 'Price Type',
+    'entry_sync_images' => 'Sync Images',
+    'entry_sync_attributes' => 'Sync Attributes',
+    'button_save' => 'Save',
+    'button_sync_now' => 'Sync Now',
+    'button_test_connection' => 'Test Connection',
+    'text_success' => 'Settings saved successfully',
+    'text_home' => 'Home',
+    'text_extension' => 'Extensions'
+];

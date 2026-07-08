@@ -4,15 +4,20 @@ namespace Opencart\Admin\Controller\Module;
 
 class Moysklad extends \Opencart\System\Engine\Controller
 {
+    private $error = [];
+
     public function index(): void
     {
         $this->load->language('module/moysklad');
-        $this->document->setTitle($this->language->get('heading_title'));
+        $this->load->model('setting/setting');
         $this->load->model('module/moysklad');
-        $this->load->model('setting/module');
 
-        $data = [];
-        $data['heading_title'] = 'МойСклад Интеграция';
+        if (($this->request->server['REQUEST_METHOD'] == 'POST') && ($this->validate())) {
+            $this->model_setting_setting->editSetting('module_moysklad', $this->request->post);
+            $this->response->redirect($this->url->link('extension/module', 'user_token=' . $this->session->data['user_token']));
+        }
+
+        $data['heading_title'] = $this->language->get('heading_title');
         $data['text_enabled'] = $this->language->get('text_enabled');
         $data['text_disabled'] = $this->language->get('text_disabled');
         $data['entry_api_key'] = $this->language->get('entry_api_key');
@@ -23,29 +28,51 @@ class Moysklad extends \Opencart\System\Engine\Controller
         $data['button_save'] = $this->language->get('button_save');
         $data['button_sync_now'] = $this->language->get('button_sync_now');
         $data['button_test_connection'] = $this->language->get('button_test_connection');
+        $data['text_home'] = $this->language->get('text_home');
 
-        if ($this->request->server['REQUEST_METHOD'] == 'POST') {
-            $this->model_setting_module->editSetting('module_moysklad', $this->request->post);
-            $this->session->data['success'] = $this->language->get('text_success');
-            $this->response->redirect($this->url->link('module/moysklad', 'user_token=' . $this->session->data['user_token']));
+        if (isset($this->request->post['module_moysklad_status'])) {
+            $data['module_moysklad_status'] = $this->request->post['module_moysklad_status'];
+        } else {
+            $data['module_moysklad_status'] = $this->config->get('module_moysklad_status');
         }
 
-        $settings = $this->model_setting_module->getSetting('module_moysklad');
-        $data['module_moysklad_status'] = $settings['module_moysklad_status'] ?? 0;
-        $data['module_moysklad_api_key'] = $settings['module_moysklad_api_key'] ?? '';
-        $data['module_moysklad_sync_frequency'] = $settings['module_moysklad_sync_frequency'] ?? 60;
-        $data['module_moysklad_price_type'] = $settings['module_moysklad_price_type'] ?? 'selling';
-        $data['module_moysklad_sync_images'] = $settings['module_moysklad_sync_images'] ?? 1;
-        $data['module_moysklad_sync_attributes'] = $settings['module_moysklad_sync_attributes'] ?? 1;
-        $data['module_moysklad_last_sync'] = $settings['module_moysklad_last_sync'] ?? '';
+        if (isset($this->request->post['module_moysklad_api_key'])) {
+            $data['module_moysklad_api_key'] = $this->request->post['module_moysklad_api_key'];
+        } else {
+            $data['module_moysklad_api_key'] = $this->config->get('module_moysklad_api_key');
+        }
+
+        if (isset($this->request->post['module_moysklad_sync_frequency'])) {
+            $data['module_moysklad_sync_frequency'] = $this->request->post['module_moysklad_sync_frequency'];
+        } else {
+            $data['module_moysklad_sync_frequency'] = $this->config->get('module_moysklad_sync_frequency') ?: 60;
+        }
+
+        if (isset($this->request->post['module_moysklad_price_type'])) {
+            $data['module_moysklad_price_type'] = $this->request->post['module_moysklad_price_type'];
+        } else {
+            $data['module_moysklad_price_type'] = $this->config->get('module_moysklad_price_type') ?: 'selling';
+        }
+
+        if (isset($this->request->post['module_moysklad_sync_images'])) {
+            $data['module_moysklad_sync_images'] = $this->request->post['module_moysklad_sync_images'];
+        } else {
+            $data['module_moysklad_sync_images'] = $this->config->get('module_moysklad_sync_images') ?: 1;
+        }
+
+        if (isset($this->request->post['module_moysklad_sync_attributes'])) {
+            $data['module_moysklad_sync_attributes'] = $this->request->post['module_moysklad_sync_attributes'];
+        } else {
+            $data['module_moysklad_sync_attributes'] = $this->config->get('module_moysklad_sync_attributes') ?: 1;
+        }
 
         $data['breadcrumbs'] = [
             [
-                'text' => $this->language->get('text_home'),
+                'text' => $data['text_home'],
                 'href' => $this->url->link('common/dashboard', 'user_token=' . $this->session->data['user_token'])
             ],
             [
-                'text' => 'МойСклад Интеграция',
+                'text' => $data['heading_title'],
                 'href' => $this->url->link('module/moysklad', 'user_token=' . $this->session->data['user_token'])
             ]
         ];
@@ -101,5 +128,10 @@ class Moysklad extends \Opencart\System\Engine\Controller
                 'message' => $e->getMessage()
             ]));
         }
+    }
+
+    protected function validate()
+    {
+        return true;
     }
 }

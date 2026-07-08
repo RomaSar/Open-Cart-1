@@ -23,6 +23,7 @@
     "system/library/moysklad/product.php",
     "system/library/moysklad/order.php",
     "system/library/moysklad/image.php",
-    "system/library/moysklad/attribute.php"
+    "system/library/moysklad/attribute.php",
+    "system/startup/moysklad_menu.php"
   ]
 }
