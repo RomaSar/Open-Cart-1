@@ -1,0 +1,1 @@
+Initial repository for Open-Cart-1. This repository will hold the MoySklad ↔ OpenCart integration module files in a new branch.
