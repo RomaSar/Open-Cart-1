@@ -1,5 +1,6 @@
 <?php
 
+$_['menu_moysklad'] = 'Мой Склад';
 $_['heading_title'] = 'МойСклад Интеграция';
 $_['text_enabled'] = 'Включено';
 $_['text_disabled'] = 'Отключено';

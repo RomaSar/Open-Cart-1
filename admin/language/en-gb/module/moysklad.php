@@ -1,5 +1,6 @@
 <?php
 
+$_['menu_moysklad'] = 'MoySkiad';
 $_['heading_title'] = 'МойСклад Integration';
 $_['text_enabled'] = 'Enabled';
 $_['text_disabled'] = 'Disabled';

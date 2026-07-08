@@ -27,7 +27,7 @@ class Moysklad extends \Opencart\System\Engine\Controller
         if ($this->request->server['REQUEST_METHOD'] == 'POST') {
             $this->model_setting_module->editSetting('module_moysklad', $this->request->post);
             $this->session->data['success'] = $this->language->get('text_success');
-            $this->response->redirect($this->url->link('extension/module', 'user_token=' . $this->session->data['user_token']));
+            $this->response->redirect($this->url->link('module/moysklad', 'user_token=' . $this->session->data['user_token']));
         }
 
         $settings = $this->model_setting_module->getSetting('module_moysklad');
@@ -42,15 +42,11 @@ class Moysklad extends \Opencart\System\Engine\Controller
         $data['breadcrumbs'] = [
             [
                 'text' => $this->language->get('text_home'),
-                'href' => $this->url->link('common/dashboard')
-            ],
-            [
-                'text' => $this->language->get('text_extension'),
-                'href' => $this->url->link('extension/module')
+                'href' => $this->url->link('common/dashboard', 'user_token=' . $this->session->data['user_token'])
             ],
             [
                 'text' => $this->language->get('heading_title'),
-                'href' => $this->url->link('module/moysklad')
+                'href' => $this->url->link('module/moysklad', 'user_token=' . $this->session->data['user_token'])
             ]
         ];
 
