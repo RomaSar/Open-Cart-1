@@ -1,0 +1,81 @@
+{# admin/view/template/extension/module/moysklad.twig #}
+{{ header }}
+{{ column_left }}
+<div id="content">
+  <div class="page-header">
+    <div class="container-fluid">
+      <h1>{{ heading_title }}</h1>
+    </div>
+  </div>
+  <div class="container-fluid">
+    {% if error_warning %}
+      <div class="alert alert-danger">{{ error_warning }}</div>
+    {% endif %}
+    {% if success %}
+      <div class="alert alert-success">{{ success }}</div>
+    {% endif %}
+    <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-moysklad" class="form-horizontal">
+      <div class="card">
+        <div class="card-header"><i class="fa fa-cog"></i> Общие настройки</div>
+        <div class="card-body">
+          <div class="form-group row">
+            <label class="col-sm-2 control-label">API URL</label>
+            <div class="col-sm-10">
+              <input type="text" name="module_moysklad_api_url" value="{{ module_moysklad_api_url }}" placeholder="https://online.moysklad.ru" class="form-control" />
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-2 control-label">Токен (Bearer)</label>
+            <div class="col-sm-10">
+              <input type="text" name="module_moysklad_token" value="{{ module_moysklad_token }}" class="form-control" />
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-2 control-label">Статус модуля</label>
+            <div class="col-sm-10">
+              <select name="module_moysklad_status" class="form-control">
+                <option value="1" {% if module_moysklad_status %}selected{% endif %}>Включено</option>
+                <option value="0" {% if not module_moysklad_status %}selected{% endif %}>Отключено</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button type="submit" class="btn btn-primary">Сохранить</button>
+          <a href="{{ cancel }}" class="btn btn-default">Отмена</a>
+        </div>
+      </div>
+    </form>
+
+    <div class="card mt-3">
+      <div class="card-header"><i class="fa fa-refresh"></i> Ручная синхронизация</div>
+      <div class="card-body">
+        <button id="btn-sync-products" class="btn btn-info">{{ button_sync_products }}</button>
+        <button id="btn-sync-orders" class="btn btn-info">{{ button_sync_orders }}</button>
+        <div id="sync-result" class="mt-3"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+$('#btn-sync-products').on('click', function() {
+  $('#sync-result').text('Выполняется...');
+  $.getJSON('{{ sync_products }}', function(data) {
+    $('#sync-result').text(data.message);
+  }).fail(function(xhr) {
+    $('#sync-result').text('Ошибка: ' + xhr.responseText);
+  });
+});
+
+$('#btn-sync-orders').on('click', function() {
+  $('#sync-result').text('Выполняется...');
+  $.getJSON('{{ sync_orders }}', function(data) {
+    $('#sync-result').text(data.message);
+  }).fail(function(xhr) {
+    $('#sync-result').text('Ошибка: ' + xhr.responseText);
+  });
+});
+</script>
+
+{{ footer }}
