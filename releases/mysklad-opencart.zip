@@ -1,0 +1,5 @@
+This file is a placeholder for the ZIP archive. To create a real ZIP containing the `upload/mysklad` folder, download the folder contents and run locally:
+
+zip -r mysklad-opencart.zip mysklad
+
+(Repository: RomaSar/Open-Cart-1, branch: Ветка-вроде)

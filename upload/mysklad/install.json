@@ -1,0 +1,16 @@
+{
+  "name": "Модуль интеграции МойСклад для OpenCart",
+  "version": "0.1.0",
+  "opencart": "4.1.0.3",
+  "product_id": "product_0001",
+  "secret": "4f9c2a7d8e9b4c1fa6b2d3e8c9f0a1b2",
+  "description": "Минимальный скелет модуля. Включает заглушки для цен, остатков, категорий, фото, заказов, типов цен, описаний, атрибутов и cron.",
+  "files": [
+    "admin/controller/extension/module/mysklad.php",
+    "admin/language/ru-ru/extension/module/mysklad.php",
+    "admin/view/template/extension/module/mysklad.twig",
+    "catalog/controller/extension/module/mysklad.php",
+    "catalog/model/extension/module/mysklad.php",
+    "system/library/mysklad.php"
+  ]
+}

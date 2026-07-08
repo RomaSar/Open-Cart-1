@@ -1,0 +1,16 @@
+<div class="container">
+  <h1>{{ heading_title }}</h1>
+  <form method="post" action="{{ save }}">
+    <div>
+      <label>Product ID</label>
+      <input type="text" name="module_mysklad_product_id" value="{{ product_id }}" />
+    </div>
+    <div>
+      <label>Secret</label>
+      <input type="text" name="module_mysklad_secret" value="{{ secret }}" />
+    </div>
+    <div>
+      <button type="submit">Сохранить</button>
+    </div>
+  </form>
+</div>
