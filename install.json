@@ -7,13 +7,13 @@
   "description": "Интеграция с МойСклад: синхронизация цен, остатков, категорий, фото, заказов, атрибутов",
   "status": true,
   "files": [
-    "admin/controller/module/moysklad.php",
-    "admin/language/en-gb/module/moysklad.php",
-    "admin/language/ru-ru/module/moysklad.php",
-    "admin/model/module/moysklad.php",
-    "admin/view/template/module/moysklad.twig",
-    "catalog/controller/cron/moysklad.php",
-    "catalog/model/module/moysklad.php",
+    "admin/controller/extension/module/moysklad.php",
+    "admin/language/en-gb/extension/module/moysklad.php",
+    "admin/language/ru-ru/extension/module/moysklad.php",
+    "admin/model/extension/module/moysklad.php",
+    "admin/view/template/extension/module/moysklad.twig",
+    "catalog/controller/extension/cron/moysklad.php",
+    "catalog/model/extension/module/moysklad.php",
     "system/library/moysklad.php",
     "system/library/moysklad/api.php",
     "system/library/moysklad/sync.php",
@@ -23,7 +23,6 @@
     "system/library/moysklad/product.php",
     "system/library/moysklad/order.php",
     "system/library/moysklad/image.php",
-    "system/library/moysklad/attribute.php",
-    "system/startup/moysklad_menu.php"
+    "system/library/moysklad/attribute.php"
   ]
 }
