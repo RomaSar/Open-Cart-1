@@ -1,7 +1,5 @@
 <?php
 
-$_['menu_moysklad'] = 'MoySkiad';
-$_['heading_title'] = 'МойСклад Integration';
 $_['text_enabled'] = 'Enabled';
 $_['text_disabled'] = 'Disabled';
 $_['entry_api_key'] = 'API Key';
@@ -15,4 +13,3 @@ $_['button_test_connection'] = 'Test Connection';
 $_['text_success'] = 'Settings saved successfully';
 $_['text_home'] = 'Home';
 $_['text_extension'] = 'Extensions';
-$_['error_api_key'] = 'API Key is required';

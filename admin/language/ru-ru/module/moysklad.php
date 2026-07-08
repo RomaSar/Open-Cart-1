@@ -1,7 +1,5 @@
 <?php
 
-$_['menu_moysklad'] = 'Мой Склад';
-$_['heading_title'] = 'МойСклад Интеграция';
 $_['text_enabled'] = 'Включено';
 $_['text_disabled'] = 'Отключено';
 $_['entry_api_key'] = 'API Ключ';
@@ -15,4 +13,3 @@ $_['button_test_connection'] = 'Тест подключения';
 $_['text_success'] = 'Настройки успешно сохранены';
 $_['text_home'] = 'Главная';
 $_['text_extension'] = 'Расширения';
-$_['error_api_key'] = 'API Ключ обязателен';

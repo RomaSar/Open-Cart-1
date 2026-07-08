@@ -105,31 +105,26 @@ class Sync
 
     public function syncAttributes(): int
     {
-        return 0; // Implementation
+        return 0;
     }
 
     private function syncCategory($category): void
     {
-        // Implementation
     }
 
     private function syncProduct($product): void
     {
-        // Implementation
     }
 
     private function syncPrice($productMsId, $price): void
     {
-        // Implementation
     }
 
     private function updateStock($productId, $stock): void
     {
-        // Implementation
     }
 
     private function syncImage($productId, $image): void
     {
-        // Implementation
     }
 }

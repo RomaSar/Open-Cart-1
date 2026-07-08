@@ -6,7 +6,6 @@
   "code": "moysklad",
   "description": "Интеграция с МойСклад: синхронизация цен, остатков, категорий, фото, заказов, атрибутов",
   "status": true,
-  "ocmod": [],
   "files": [
     "admin/controller/module/moysklad.php",
     "admin/language/en-gb/module/moysklad.php",
